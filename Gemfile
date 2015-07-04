@@ -1,11 +1,17 @@
 source "https://rubygems.org"
 ruby "2.1.1"
 
-# building site
-gem 'jekyll', '2.4.0'
+# jekyll
+gem 'jekyll'
+
+# compiling less
 gem 'therubyracer'
 gem 'less'
+
+# minifying
 gem 'jekyll-press'
+
+# octokit
 gem 'octokit'
 gem 'netrc'
 
