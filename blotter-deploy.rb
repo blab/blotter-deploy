@@ -89,24 +89,12 @@ module Hook
 	
 	# run
 	def self.run
-		begin
-			tries ||= 10
-			update_site
-			update_projects
-			build
-			deploy	
-		rescue RuntimeError => e
-			puts e.message 
-			tries -= 1
-			if tries > 0
-				sleep 10
-				retry
-			else
-				puts "Abort! abort!"
-			end
-		end
+		update_site
+		update_projects
+		build
+		deploy	
 	end
-	
+
 end	
 		
 # deploy
