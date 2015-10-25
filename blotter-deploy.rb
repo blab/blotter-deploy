@@ -73,6 +73,9 @@ module Hook
 		unless system "ruby _scripts/generate-project-data.rb"
 			raise "build error"
 		end
+		unless system "bundle exec jekyll clean"
+			raise "build error"
+		end
 		unless system "bundle exec jekyll build"
 			raise "build error"
 		end
