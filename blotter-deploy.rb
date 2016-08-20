@@ -1,5 +1,6 @@
 require 'yaml'
 require 'json'
+require 'optparse'
 
 # global variables to store progress
 $commit = ""
@@ -96,10 +97,22 @@ module Hook
 
 	# run
 	def self.run
+
+		options = {}
+		OptionParser.new do |opts|
+			opts.banner = "Usage: blotter-deploy.rb [options]"
+			opts.on("-t", "--[no-]test", "Test build, don't deploy") do |v|
+				options[:test] = v
+			end
+		end.parse!
+	
 		update_site
 		update_projects
 		build
-		deploy
+		unless options[:test] == true then
+			deploy
+		end
+
 	end
 
 end
