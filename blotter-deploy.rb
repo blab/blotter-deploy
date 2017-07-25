@@ -1,5 +1,4 @@
 require 'yaml'
-require 'json'
 require 'optparse'
 
 # global variables to store progress
@@ -105,7 +104,7 @@ module Hook
 				options[:test] = v
 			end
 		end.parse!
-	
+
 		update_site
 		update_projects
 		build
