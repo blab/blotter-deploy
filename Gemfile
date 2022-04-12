@@ -7,7 +7,7 @@ gem "jekyll", "4.2.0"
 gem "execjs"
 
 # octokit
-gem 'octokit'
+gem 'octokit', "4.22.0"
 gem 'netrc'
 
 # Twitter
