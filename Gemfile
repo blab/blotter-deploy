@@ -12,6 +12,3 @@ gem 'netrc'
 
 # Twitter
 gem 'jekyll-twitter-plugin'
-
-# deploying
-gem 's3_website', '3.4.0'

@@ -87,7 +87,12 @@ module Hook
 	def self.deploy
 		puts "start deploy"
 		Dir.chdir($basedir)
-		unless system "bundle exec s3_website push --site=blotter/_site"				# run s3_website
+		puts "S3 sync"
+		unless system "aws s3 sync blotter/_site/ s3://blotter --size-only --acl public-read --delete --cache-control max-age=604800"
+			raise "deploy error"
+		end
+		puts "CloudFront invalidation"
+		unless system "aws cloudfront create-invalidation --distribution-id E9GL54Z103N19 --paths '/*'"
 			raise "deploy error"
 		end
 		puts "finish deploy"
