@@ -10,6 +10,9 @@ gem "execjs"
 gem 'octokit', "4.22.0"
 gem 'netrc'
 
+# fetching URIs
+gem 'down'
+
 # Twitter
 gem 'jekyll-twitter-plugin'
 

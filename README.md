@@ -17,8 +17,5 @@ bundle install
 
 # Todo
 
-* Restore gzipping on S3 upload
-  * This can be done with `JEKYLL_ENV=production bundle exec jekyll build`, but currently encountering an error when trying to compress an already gzipped file
-  * Will wait to activate until `/projects` have been updated to not copy over excess material
 * Use `--dryrun` to collect changed files for CloudFront invalidation
-* Update `/projects` to specify projects that should only have README.md copied over and other projects that should have full directory structure copied over
+* Update project layout to ellipses... for long commits

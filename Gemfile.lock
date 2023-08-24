@@ -5,6 +5,8 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     colorator (1.1.0)
     concurrent-ruby (1.2.2)
+    down (5.2.2)
+      addressable (~> 2.5)
     em-websocket (0.5.3)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0)
@@ -102,6 +104,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  down
   execjs
   jekyll (= 4.3.2)
   jekyll-gzip
