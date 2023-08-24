@@ -79,7 +79,7 @@ module Hook
 		unless system "bundle exec jekyll clean"
 			raise "build error - jekyll clean"
 		end
-		unless system "JEKYLL_ENV=production bundle exec jekyll build"
+		unless system "bundle exec jekyll build"
 			raise "build error - jekyll build"
 		end
 		puts "finish build"
@@ -91,10 +91,8 @@ module Hook
 		puts "start deploy"
 		Dir.chdir($basedir)
 		puts "S3 sync"
-		unless system "aws s3 sync blotter/_site/ s3://blotter --size-only --acl public-read --delete --cache-control max-age=604800 --content-encoding gzip"
+		unless system "aws s3 sync blotter/_site/ s3://blotter --size-only --acl public-read --delete --cache-control max-age=604800"
 			raise "deploy error - aws s3 sync"
-
-
 		end
 		puts "CloudFront invalidation"
 		unless system "aws cloudfront create-invalidation --distribution-id E9GL54Z103N19 --paths '/*'"

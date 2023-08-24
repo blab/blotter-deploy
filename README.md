@@ -17,5 +17,8 @@ bundle install
 
 # Todo
 
+* Gzip text assets, requires:
+  - `JEKYLL_ENV=production bundle exec jekyll build` to gzip these assets
+  - Specically flagging only these files in S3 via `--content-encoding gzip`
 * Use `--dryrun` to collect changed files for CloudFront invalidation
 * Update project layout to ellipses... for long commits
