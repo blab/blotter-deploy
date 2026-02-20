@@ -9,6 +9,7 @@ gem "execjs"
 # octokit
 gem 'octokit', "4.22.0"
 gem 'netrc'
+gem 'addressable'
 
 # fetching URIs
 gem 'down'

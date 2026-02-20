@@ -16,7 +16,7 @@ module Hook
 	def self.update_site
 		puts "start blotter update"
 		Dir.chdir($basedir)
-		if !Dir.exists?("blotter")											# start by cloning blotter repo
+		if !Dir.exist?("blotter")											# start by cloning blotter repo
 			unless system "git clone https://github.com/blab/blotter.git"
 				raise "blotter update error"
 			end
@@ -42,7 +42,7 @@ module Hook
 		config["projects"].each do |repo|
 			name = repo.split('/').drop(1).join('')
 			Dir.chdir($basedir + "/blotter/projects")
-			if !Dir.exists?(name)											# clone project repo
+			if !Dir.exist?(name)											# clone project repo
 				unless system "git clone https://github.com/#{repo}.git"
 					raise "project update error"
 				end
