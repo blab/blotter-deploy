@@ -91,11 +91,11 @@ module Hook
 		puts "start deploy"
 		Dir.chdir($basedir)
 		puts "S3 sync"
-		unless system "aws s3 sync blotter/_site/ s3://blotter --size-only --acl public-read --delete --cache-control max-age=604800"
+		unless system "aws s3 sync blotter/_site/ s3://#{ENV['S3_BUCKET']} --size-only --delete --cache-control max-age=604800"
 			raise "deploy error - aws s3 sync"
 		end
 		puts "CloudFront invalidation"
-		unless system "aws cloudfront create-invalidation --distribution-id E9GL54Z103N19 --paths '/*'"
+		unless system "aws cloudfront create-invalidation --distribution-id #{ENV['CLOUDFRONT_ID']} --paths '/*'"
 			raise "deploy error - aws cloudfront"
 		end
 		puts "finish deploy"
